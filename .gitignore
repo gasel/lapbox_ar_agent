@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+backend/models/*
+!backend/models/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db

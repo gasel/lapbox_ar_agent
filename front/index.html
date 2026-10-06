@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lapbook AR Asistente</title>
+    <!-- A-Frame y AR.js -->
+    <script src="https://aframe.io/releases/1.8.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <!-- ONNX Runtime Web (Requisito indispensable para que funcione el VAD local) -->
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.30.0/dist/ort.min.js"></script>
+    <!-- CDN sugerido para el VAD (Voice Activity Detection) manos libres -->
+    <!-- Librería Silero VAD para la web -->
+    <script src="https://cdn.jsdelivr.net/npm/@ricky0123/vad-web@0.0.31/dist/bundle.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body style="margin: 0; overflow: hidden;">
+
+    <!-- Escena Maestra de Realidad Aumentada -->
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+        
+        <!-- Marcador genérico 'Hiro' para pruebas de la maqueta (cocina) -->
+        <a-marker preset="hiro" id="marcador-cocina">
+            <!-- Cubo de prueba que representará el Extintor/Fuego virtual -->
+            <a-box id="objeto-virtual" position="0 0.5 0" material="color: green; opacity: 0.8;" visible="false"></a-box>
+        </a-marker>
+
+        
+    </a-scene>
+
+    <!-- UI flotante para feedback del alumno -->
+    <div id="ui-status" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: white; padding: 15px; border-radius: 10px; font-family: sans-serif; text-align: center; z-index: 999;">
+        Escuchando... Di algo mirando a la maqueta 🏠
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
